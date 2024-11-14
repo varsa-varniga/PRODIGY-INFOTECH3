@@ -1,0 +1,285 @@
+body {
+    margin: 0;
+    background-image: url(bg\ new.png);
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center;
+    background-attachment: fixed;
+
+}
+#candy {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    color: #fff;
+    background-color: #FFB6C1; /* Light pastel pink */
+}
+
+.select-box, .play-board, .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.select-box {
+    background: #fff;
+
+    padding: 20px 25px 25px;
+    border-radius: 10px; 
+    max-width: 400px;
+    width: 100%;
+}
+
+.select-box.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.select-box header {
+    font-size: 50px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+    color: #0baaca; 
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+    font-family: sans-serif;
+}
+
+.select-box .title {
+    font-size: 22px;
+    font-weight: 700; 
+    margin: 20px 0;
+    color: #4d0640; 
+}
+
+.select-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700px;
+    padding: 10px 0;
+    border: none;
+    background: #ecc413;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover,
+.btn button:hover {
+    transform: scale(0.96);
+}
+
+.options button.playerX {
+    margin-right: 5px;
+}
+
+.options button.playerO {
+    margin-left: 5px;
+}
+
+.select-box .credit {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.select-box .credit a {
+    color: #FFB6C1; 
+    text-decoration: none;
+}
+
+.select-box .credit a:hover {
+    text-decoration: underline;
+}
+
+.play-board {
+    margin-top: 45px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    
+}
+
+.play-board .details {
+    padding: 7px;
+    border-radius: 5px;
+    background: #fff;
+     
+}
+
+.play-board .players {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.players span {
+    position: relative;
+    z-index: 2;
+    color: #469a78; 
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.players.active span:first-child {
+    color: #fff;
+}
+
+.players.active span:last-child {
+    color: #569f82;
+}
+
+.players span:first-child {
+    color: #fff;
+}
+
+.players .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #FFB6C1;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.players.active span:first-child {
+    color: #528d75; 
+}
+
+.players.active span:nth-child(2) {
+    color: #fff;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.play-area {
+    margin-top: 20px;
+}
+.play-area section span.x {
+    color: #467b66; 
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.play-area section span.o {
+    color: #631463; 
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+    font-weight: bolder;  
+}
+
+
+.play-area section {
+    display: flex;
+    margin-bottom: 1px;
+}
+
+.play-area section span {
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: 4px;
+    color: #378365; 
+    font-size: 60px;
+    line-height: 150px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(244, 240, 240, 0.756);
+    transition: all 0.3s ease;
+    background: #fff;
+}
+.play-area section span:hover {
+    box-shadow:0px 6px 12px rgba(0, 0, 0, 0.3); 
+}
+.result-box {
+    padding:25px 20px;
+    border-radius:10px; /* Softer corners */
+    max-width:400px;
+    width:100%;
+    opacity:0;
+    text-align:center;
+    background:#fff;
+    pointer-events:none;
+    transform:translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+    opacity:1;
+    pointer-events:auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won-text {
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: #b84173; 
+}
+
+.result-box .won-text p {
+    font-weight: bolder;
+    margin: 0 5px;
+    color: #438db6; 
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.result-box .btn {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border: none;
+    background: #5bd26f; /* Mint green */
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
